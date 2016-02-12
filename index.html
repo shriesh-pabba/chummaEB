@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Now</title>
+<link rel="icon" href="assets/images/favicon.png" type="image/png" sizes="64x64">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel = "stylesheet" href = "assets/css/chumma.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src = "assets/js/bootstrap_collapse.js"></script>
+<script src = "assets/js/bootstrap_others.js"></script>
+<script src = "assets/js/getData.js"></script>
+</head>
+
+<body>
+
+<nav class = "navbar navbar-default">
+	<div class = "container-fluid">
+		<div class = "navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span> 
+			</button>
+			<a class = "navbar-brand navbar-left" href = "orderNow.html"><img src = "assets/images/logo.png" height = "50px" width = "200px"/></a>
+		</div>
+		<div class = "collapse navbar-collapse" id="myNavbar">
+			<ul class = "nav navbar-nav">
+				<li> <a href = "orderNow.html" class = "btn active btn-sm">Order Now</a></li>
+				<li> <a href = "about.html" class = "btn btn-sm">About Us</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class = "container-fluid" id = "orderDiv">
+
+<form role = "form" name = "order" id = "order">
+
+
+<div class = "panel-group">
+<div class = "panel panel-primary">
+	<div class = "panel-heading">Choose Location</div>
+	<div class = "panel-body"> 
+	<select id = "cLocation" name = "cLocation" class = "form-control">
+		<option value = ""></option>
+		<option value = "Hitec">Hitec City</option>
+		<option value = "Kondapur">Kondapur</option>
+	</select>
+	</div>
+</div>
+
+<div id = "orderForm" class = "hidden">
+
+<div class = "panel panel-primary" id = "orderItems">
+	<div class = "panel-heading"> Provide Quantity </div>
+	<div class = "panel-body">
+	<div class = "items" id = "item1Div">
+	<div class = "row">
+		<div class = "col-xs-4 text-left"><span class = "badge glyphicon glyphicon-pushpin"> INR <span id = "item1Price"></span></span></div>
+		<div class = "col-xs-5"><span id = "item1Name"></span></div>
+		<div class = "col-xs-3 text-right"><span class = "label label-warning"><span id = "item1Max" ></span><span id = "item1MaxDec"> left</span></span></div>
+	</div>
+	<div class = "row">
+		<div class = "col-xs-4 text-center" id = "item1Img"></div>
+		<div class = "col-xs-8"><span id = "item1Des"></span></div>
+	</div>
+	<div class = "row">
+		<div class = "col-xs-4"><button name = "minusQty1" id = "minusQty1" class = "form-control"><span class = "glyphicon glyphicon-minus"></span></button></div>
+		<div class = "col-xs-4"><input type = "number" name = "item1" id = "item1" min = "0" max = "" value = "" class = "form-control"/></div>
+		<div class = "col-xs-4"><button name = "plusQty1" id = "plusQty1" class = "form-control"><span class = "glyphicon glyphicon-plus"></span></button></div>
+	</div>
+	</div>
+	<br />
+	
+	<div class = "items">
+	<div class = "row">
+		<div class = "col-xs-4 text-left"><span class = "badge glyphicon glyphicon-pushpin"> INR <span id = "item2Price"></span></span></div>
+		<div class = "col-xs-5"><span id = "item2Name"></span></div>
+		<div class = "col-xs-3 text-right"><span class = "label label-warning"><span id = "item2Max"></span><span id = "item2MaxDec"> left</span></span></div>
+	</div>
+	<div class = "row">
+		<div class = "col-xs-4 text-center" id = "item2Img"></div>
+		<div class = "col-xs-8"><span id = "item2Des"></span></div>
+	</div>
+	<div class = "row">
+		<div class = "col-xs-4"><button name = "minusQty2" id = "minusQty2" class = "form-control btn-sm"><span class = "glyphicon glyphicon-minus"></span></button></div>
+		<div class = "col-xs-4"><input type = "number" name = "item2" id = "item2" min = "0" max = "" value = "" class = "form-control"/></div>
+		<div class = "col-xs-4"><button name = "plusQty2" id = "plusQty2" class = "form-control"><span class = "glyphicon glyphicon-plus"></span></button></div>
+	</div>
+	</div>
+	
+	</div>
+</div>
+
+<div class = "panel panel-primary">
+	<div class = "panel-heading">Choose Delivery Slot</div>
+	<div class = "panel-body">
+		<div class = "form-group slot">
+			<div class = "radio"><label for = "slot1"><input type = "radio" id = "slot1" name = "slot" value = "1">07:30AM - 08:30AM</label></div>
+			<div class ="radio"><label for = "slot2"><input type = "radio" id = "slot2" name = "slot" value = "2">08:30AM - 09:30AM</label></div>
+		</div>
+	</div>
+</div>
+
+<div class = "panel panel-primary">
+	<div class = "panel-heading">Provide Delivery Address</div>
+	<div class = "panel-body">
+		<div class = "form-group address">
+		<div class = "row">
+			<div class = "col-xs-4 cName"><label for = "cName">Name</label></div>
+			<div class = "col-xs-8"><input class = "form-control" type = "text" id = "cName" name = "cName" value = "" /></div>
+		</div>
+		</div>
+		
+		<div class = "form-group address">
+		<div class = "row">
+		<p class = "bg-danger" id = "cMNumErr"></p>
+			<div class = "col-xs-4 cMNum"><label for = "cMNum">Mobile</label></div>
+			<div class = "col-xs-8"><input class = "form-control" type = "text" id = "cMNum" name = "cMNum" value = "" /></div>
+		</div>
+		</div>
+		
+		<div class = "form-group address">
+		<div class = "row">
+		<p class = "bg-danger" id = "cEmailErr"></p>
+			<div class = "col-xs-4 cEmail"><label for = "cEmail">Email</label></div>
+			<div class = "col-xs-8"><input class = "form-control" type = "text" id = "cEmail" name = "cEmail" value = "" /></div>
+		</div>
+		</div>
+		
+		<div class = "form-group address">
+		<div class = "row">
+		<p class = "bg-danger" id = "cAddressErr"></p>
+			<div class = "col-xs-4 cAddress"><label for = "cAddress">Address</label></div>
+			<div class = "col-xs-8"><input class = "form-control" type = "text" id = "cAddress" name = "cAddress" value = "" /></div>
+		</div>
+		</div>
+		
+		<div class = "form-group address">
+		<div class = "row">
+		<p class = "bg-danger" id = "cStreetErr"></p>
+			<div class = "col-xs-4 cStreet"><label for = "cStreet">Street</label></div>
+			<div class = "col-xs-8"><input class = "form-control" type = "text" id = "cStreet" name = "cStreet" value = "" /></div>
+		</div>
+		</div>
+		
+		<div class = "form-group address">
+		<div class = "row">
+		<p class = "bg-danger" id = "cPincodeErr"></p>
+			<div class = "col-xs-4 cPincode"><label for = "cPincode">Pincode</label></div>
+			<div class = "col-xs-8"><input class = "form-control" type = "text" id = "cPincode" name = "cPincode" value = "" /></div>
+		</div>
+		</div>
+		
+		<div class = "form-group address">
+		<div class = "row">
+		<p class = "bg-danger" id = "cLandmarkErr"></p>
+			<div class = "col-xs-4 cLandmark"><label for = "cLandmark">Landmark</label></div>
+			<div class = "col-xs-8"><input class = "form-control" type = "text" id = "cLandmark" name = "cLandmark" value = "" /></div>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+<div class = "panel panel-primary">
+	<input type = "hidden" name = "hsubmitOrder" id = "hsubmitOrder" value = "1" />
+	<div class = "panel-footer text-right"><input type = "button" name = "submitOrder" id = "submitOrder" value = "Submit" class = "btn btn-default" /></div>
+</div>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+<!-- Beginning of orderPreview Page -->
+
+<div class = "container-fluid" id = "orderPreview">
+
+</div>
+<!-- End of Order Preview Page -->
+
+<!-- Beginning of Thank You Page -->
+<div class = "container-fluid" id = "thankYou">
+
+</div>
+<!-- End of Thank You Page -->
+
+<!--
+<div class = "alert alert-info fade in">
+<a href = "#" class = "close" data-dismiss = "alert">&times;</a>
+<p> Welcome to Eatbest </p>
+</div>
+-->
+
+<hr />
+<div class = "footer text-center">
+Copyright, EatBest
+</div>
+</body>
+
+</html>
